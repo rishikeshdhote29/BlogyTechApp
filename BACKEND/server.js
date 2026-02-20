@@ -1,15 +1,20 @@
- const express = require("express")
- const dotenv = require("dotenv")
+const express = require("express")
+const dotenv = require("dotenv")
+const categoriesRouter = require("./routes/Categories/categoriesRouter")
 
-
- //create an express app
- const app = express()
+//create an express app
+const app = express()
 //load the .env>>
- dotenv.config()
+dotenv.config()
 
+//middleware
+app.use(express.json())
 
- //server start
- const PORT= process.env.PORT||3000 ;
+//routes
+app.use("/api/categories", categoriesRouter)
+
+//server start
+const PORT= process.env.PORT||3000 ;
 app.listen(PORT, () => {
     console.log("Listening on port: " + PORT);
 
