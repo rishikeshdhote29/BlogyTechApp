@@ -45,17 +45,17 @@ default:0
     },
     like:[{
             type:mongoose.Schema.Types.ObjectId,
-        ref:'user'
+        ref:'User'
     }],
     comment:[{
             type:mongoose.Schema.Types.ObjectId,
-        ref:'Comments',
+        ref:'Comment',
     }]
 },
     {timestamps:true},
 
 );
 //convert schema to model
-const Post= mongoose.model("Post",postSchema);
+const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
 module.exports = Post;
 

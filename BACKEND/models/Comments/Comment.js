@@ -1,14 +1,18 @@
 const mongoose = require("mongoose")
-const categorySchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
         message: {
             type: String,
             required: true,
 
         },
-
+  author: {
+            type:mongoose.Schema.Types.ObjectId,
+      ref:"User",
+      required:true
+  },
         postId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "post",
+            ref: "Post",
             required: true,
         }
 
@@ -16,6 +20,6 @@ const categorySchema = new mongoose.Schema({
     {timestamps: true},
 );
 //convert schema to model
-const Comment = mongoose.model("Comment", commentSchema);
+const Comment = mongoose.models.Comment || mongoose.model("Comment", commentSchema);
 module.exports = Comment;
 

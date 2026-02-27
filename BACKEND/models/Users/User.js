@@ -64,15 +64,15 @@ const userSchema = new mongoose.Schema({
         },
 
     profileViwers:[{
-            type: mongoose.Schema.Types.ObjectId,ref:"user",
+            type: mongoose.Schema.Types.ObjectId,ref:"User",
 
     }],
 
-    followers:[{type:mongoose.Schema.Types.ObjectId, ref:"user"}],
-following:[{type:mongoose.Schema.Types.ObjectId, ref:"user"}],
-blockedUser:[{type:mongoose.Schema.Types.ObjectId, ref:"user"}],
-posts:[{type:mongoose.Schema.Types.ObjectId, ref:"post"}],
-llikedPosts:[{type:mongoose.Schema.Types.ObjectId, ref:"post"}],
+    followers:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
+following:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
+blockedUser:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
+posts:[{type:mongoose.Schema.Types.ObjectId, ref:"Post"}],
+llikedPosts:[{type:mongoose.Schema.Types.ObjectId, ref:"Post"}],
 
 passwordResetToken:{
             type: String,

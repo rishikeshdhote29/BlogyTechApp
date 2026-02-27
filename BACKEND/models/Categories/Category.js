@@ -7,21 +7,21 @@ const categorySchema = new mongoose.Schema({
         },
         author: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "user",
+            ref: "User",
             required: true,
         }, shares: {
             type: Number,
             default: 0,
         },
-        post: {
+        posts: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: "post",
-        }
+            ref: "Post",
+        }]
 
     },
     {timestamps: true},
 );
 //convert schema to model
-const Category = mongoose.model("Category", categorySchema);
+const Category = mongoose.models.Category || mongoose.model("Category", categorySchema);
 module.exports = Category;
 
